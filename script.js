@@ -179,23 +179,21 @@ document.addEventListener('DOMContentLoaded', function() {
       // This would typically send data to your analytics platform
       console.log(`CTA clicked: ${ctaType}`);
       
-      // For store links, redirect to fictional store
+      // For store links, redirect to actual Shopify store
       if (ctaType === 'store') {
-          // You would replace this with your actual store URL
-          window.location.href = 'store.html';
+          window.location.href = 'https://novaiwear.myshopify.com';
       }
   };
   
   // Add tracking to primary CTAs
   document.querySelectorAll('.primary-cta').forEach(cta => {
       cta.addEventListener('click', function(e) {
-          // Prevent default only for demo purposes
-          // In a real site, you might want to allow the navigation
+          // Prevent default for processing
           e.preventDefault();
           trackCTAClick('primary-' + this.innerText.trim().toLowerCase().replace(/\s+/g, '-'));
           
-          // In a real implementation, you'd redirect to the store
-          alert('Redirecting to store...');
+          // Redirect to the Shopify store
+          window.location.href = 'https://novaiwear.myshopify.com';
       });
   });
   
@@ -205,8 +203,8 @@ document.addEventListener('DOMContentLoaded', function() {
           e.preventDefault();
           trackCTAClick('store');
           
-          // In a real implementation, you'd redirect to the store
-          alert('Redirecting to store...');
+          // Redirect directly to the store without alert
+          window.location.href = 'https://novaiwear.myshopify.com';
       });
   });
   
